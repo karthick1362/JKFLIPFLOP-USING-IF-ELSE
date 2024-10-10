@@ -1,48 +1,66 @@
-# JKFLIPFLOP-USING-IF-ELSE
+ENCODER 8TO3 DATAFLOW Modelling
+AIM:
 
-**AIM:** 
+To implement Encoder 8 To 3 in Dataflow Modelling using verilog and validating their functionality using their functional tables
 
-To implement  JK flipflop using verilog and validating their functionality using their functional tables
+SOFTWARE REQUIRED: Quartus prime
 
-**SOFTWARE REQUIRED:**
+THEORY
 
-Quartus prime
+Encoder 8 To 3
 
-**THEORY**
+The 8 to 3 line Encoder is also known as Octal to Binary Encoder. In 8 to 3 line encoder, there is a total of eight inputs, i.e., D0, D1, D2, D3, D4, D5, D6, and D7 and three outputs, i.e., A0, A1, and A2. In 8-input lines, one input-line is set to true at a time to get the respective binary code in the output side. Below are the block diagram and the truth table of the 8 to 3 line encoder.
 
-**JK Flip-Flop**
+image
 
-JK flip-flop is the modified version of SR flip-flop. It operates with only positive clock transitions or negative clock transitions. The circuit diagram of JK flip-flop is shown in the following figure.
+Figure 01 Block Diagram of Encoder 8 * 3
 
-![image](https://github.com/naavaneetha/JKFLIPFLOP-USING-IF-ELSE/assets/154305477/a649c30b-232b-4558-b188-fd6c09845180)
+Truth Table
 
+image
 
-This circuit has two inputs J & K and two outputs Qtt & Qtt’. The operation of JK flip-flop is similar to SR flip-flop. Here, we considered the inputs of SR flip-flop as S = J Qtt’ and R = KQtt in order to utilize the modified SR flip-flop for 4 combinations of inputs. The following table shows the state table of JK flip-flop.
+The logical expression of the term A0, A1, and A2 are as follows:
 
-![image](https://github.com/naavaneetha/JKFLIPFLOP-USING-IF-ELSE/assets/154305477/c4360742-e8a8-4937-b089-c46c0433f9a3)
+A0 = D1 + D3 + D5 + D7
 
- 
-Here, Qtt & Qt+1t+1 are present state & next state respectively. So, JK flip-flop can be used for one of these four functions such as Hold, Reset, Set & Complement of present state based on the input conditions, when positive transition of clock signal is applied. The following table shows the characteristic table of JK flip-flop. Present Inputs Present State Next State
- 
-![image](https://github.com/naavaneetha/JKFLIPFLOP-USING-IF-ELSE/assets/154305477/6c275261-a6d5-4c37-a3a7-1e88ca11c4cd)
+A1 = D2 + D3 + D6 + D7
 
-By using three variable K-Map, we can get the simplified expression for next state, Qt+1t+1. Three variable K-Map for next state, Qt+1t+1 is shown in the following figure.
- 
-![image](https://github.com/naavaneetha/JKFLIPFLOP-USING-IF-ELSE/assets/154305477/5174f41b-0ce0-4329-a372-6d1943ea6673)
+A2 = D4 + D5 + D6 + D7
 
-The maximum possible groupings of adjacent ones are already shown in the figure. Therefore, the simplified expression for next state Qt+1t+1 is Q(t+1)=JQ(t)′+K′Q(t)Q(t+1)=JQ(t)′+K′Q(t)
+Logical circuit of the above expressions is given below:
 
-**Procedure**
+image
 
-/* write all the steps invloved */
+Figure 02 Encoder 8 * 3
 
-**PROGRAM**
+Procedure
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+1.Type the program in Quartus software.
 
-**RTL LOGIC FOR FLIPFLOPS**
+2.Compile and run the program.
 
-**TIMING DIGRAMS FOR FLIP FLOPS**
+3.Generate the RTL schematic and save the logic diagram.
 
-**RESULTS**
+4.Create nodes for inputs and outputs to generate the timing diagram.
+
+5.For different input combinations generate the timing diagram.
+
+PROGRAM
+
+Program for Encoder 8 To 3 in Dataflow Modelling and verify its truth table in quartus using Verilog programming. 
+Developed by: karthick r
+RegisterNumber: 24900278
+module exp5(din,a,b,c);
+input [0:7] din; 
+output a,b,c; 
+assign a=din[4] | din[5] | din[6] | din[7]; 
+assign b=din[2] | din[3] | din[6] | din[7];
+assign c=din[2] | din[4] | din[6] | din[7];
+endmodule
+RTL LOGIC FOR Encoder 8 To 3 in Dataflow Modelling exp 5 rtl logic
+
+TIMING DIGRAMS FOR Encoder 8 To 3 in Dataflow Modelling exp 5 tt
+
+RESULTS
+
+Implementing Encoder 8 To 3 in Dataflow Modelling using verilog and validating their functionality using their functional tables executed succesfully.
